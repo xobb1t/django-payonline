@@ -3,7 +3,7 @@ class DataProxy(object):
     aliases = {
         'datetime': 'DateTime',
         'transaction_id': 'TransactionID',
-        'order': 'OrderId',
+        'order_id': 'OrderId',
         'amount': 'Amount',
         'currency': 'Currency',
         'provider': 'Provider',

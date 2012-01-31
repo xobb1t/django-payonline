@@ -20,6 +20,7 @@ class PaymentData(models.Model):
     datetime = UTCDateTimeField()
     transaction_id = models.PositiveIntegerField()
     amount = models.DecimalField(max_digits=12, decimal_places=2)
+    order_id = models.CharField(max_length=50, unique=True)
     currency = models.CharField(max_length=3, choices=CURRENCIES)
     provider = models.CharField(max_length=10, choices=PROVIDERS)
 
