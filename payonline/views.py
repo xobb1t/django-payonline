@@ -27,7 +27,10 @@ class PayView(View):
     def get_private_security_key(self):
         return CONFIG['PRIVATE_SECURITY_KEY']
 
-    def get_security_key_params(self, order):
+    def get_payonline_url(self):
+        return CONFIG['PAYONLINE_URL']
+
+    def get_security_key_params(self):
         params = SortedDict()
         params['MerchantId'] = self.get_merchant_id()
         params['OrderId'] = self.get_order_id()
@@ -45,7 +48,8 @@ class PayView(View):
                        'amount': self.get_amount(),
                        'merchant_id': self.get_merchant_id(),
                        'currency': self.get_currency(),
-                       'security_key': self.get_security_key()})
+                       'security_key': self.get_security_key(),
+                       'payonline_url': self.get_payonline_url(),})
         return kwargs
 
     def get(self, request, *args, **kwargs):
